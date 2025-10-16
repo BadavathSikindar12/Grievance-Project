@@ -55,10 +55,10 @@ pipeline {
  
                             echo "🚀 Deploying to Kubernetes..."
                             # Deploy MongoDB first
-                            kubectl apply -f mongodb-deployment.yaml
+                            kubectl apply -f mongodb-deployment.yml
  
                             # Update application image and deploy
-                            kubectl apply -f app-deployment.yaml
+                            kubectl apply -f app-deployment.yml
  
                             echo "⏳ Waiting for deployments to complete..."
                             kubectl rollout status deployment/mongodb --timeout=300s
