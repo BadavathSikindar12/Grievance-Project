@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: grievance
-        image: <Image>
+        image: sikindar9/grievance-project-app:latest
         ports:
         - containerPort: 3015
 ---
