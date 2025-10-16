@@ -5,7 +5,7 @@ metadata:
   labels:
     app: grievance-backend
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: grievance-backend
@@ -18,7 +18,7 @@ spec:
         - name: grievance-backend
           image: sikindar9/grievance-project-app:latest
           ports:
-            - containerPort: 3001
+            - containerPort: 27017
           volumeMounts:
             - name: mongodb-storage
               mountPath: /data/db
@@ -35,6 +35,6 @@ spec:
     app: grievance-backend
   ports:
     - protocol: TCP
-      port: 3001
-      targetPort: 3001
+      port: 27017
+      targetPort: 27017
   type: ClusterIP
