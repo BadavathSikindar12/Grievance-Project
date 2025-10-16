@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grievance-app
+spec:
+  selector:
+    matchLabels:
+      app: grievance-app
+  template:
+    metadata:
+      labels:
+        app: grievance-app
+    spec:
+      containers:
+      - name: grievance
+        image: 
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 3001
