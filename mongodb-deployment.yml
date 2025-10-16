@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: grievance-backend
+  name: mongodb
   labels:
-    app: grievance-backend
+    app: mongodb
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: grievance-backend
+      app: mongodb
   template:
     metadata:
       labels:
-        app: grievance-backend
+        app: mongodb
     spec:
       containers:
-        - name: grievance-backend
-          image: sikindar9/grievance-project-app:latest
+        - name: mongodb
+          image: mongo:latest
           ports:
             - containerPort: 27017
           volumeMounts:
@@ -29,10 +29,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: grievance-backend-service
+  name: mongodb-service
 spec:
   selector:
-    app: grievance-backend
+    app: mongodb
   ports:
     - protocol: TCP
       port: 27017
