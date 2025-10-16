@@ -1,37 +1,34 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: grievance-backend
-  labels:
-    app: grievance-backend
+  name: grievance-app
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: grievance-backend
+      app: grievance-app
   template:
     metadata:
       labels:
-        app: grievance-backend
+        app: grievance-app
     spec:
       containers:
-        - name: grievance-backend
-          image: sikindar9/grievance-project-app:latest
-          ports:
-            - containerPort: 3001
-          env:
-            - name: MONGO_URI
-              value: mongodb://mongo-service:27017/mydb
+      - name: grievance
+        image: sikindar9/grievance-project-app:latest
+        ports:
+        - containerPort: 3001
+        env:
+        - name: MONGO_URI
+          value: mongodb://mongo-service:27017/mydb
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: grievance-backend-service
+  name: grievance-service
 spec:
   selector:
-    app: grievance-backend
+    app: grievance-app
   ports:
-    - protocol: TCP
-      port: 3001
-      targetPort: 3001
-  type: LoadBalancer
+  - port: 3001
+    targetPort: 3001
+  type: ClusterIP 
