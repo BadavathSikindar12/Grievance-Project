@@ -16,7 +16,7 @@ spec:
       - name: grievance
         image: sikindar9/grievance-project-app:latest
         ports:
-        - containerPort: 3001
+        - containerPort: 3000
         env:
         - name: MONGO_URI
           value: mongodb://mongo-service:27017/mydb
