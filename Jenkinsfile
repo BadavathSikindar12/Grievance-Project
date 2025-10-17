@@ -6,7 +6,7 @@ pipeline {
     environment {
         DOCKER_IMAGE = "sikindar9/grievance-project-rajasthan"
         DOCKER_TAG   = "${BUILD_NUMBER}"
-        EKS_CLUSTER_NAME = "grievance-test-cluster"
+        EKS_CLUSTER_NAME = "Grievance-project-cluster"
         AWS_REGION = "ap-southeast-2"
     }
     stages {
